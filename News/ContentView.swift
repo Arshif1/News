@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            NewsListView()
+            .navigationTitle("News")
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+extension Color {
+    static var titleColor: Color {
+        Color(red: 12/255, green: 12/255, blue: 12/255)
+    }
+    
+    static var dateColor: Color {
+        Color(red: 45/255, green: 5/255, blue: 5/255)
+    }
 }
