@@ -26,8 +26,8 @@ class ArticleLoader {
     private func transform(json: ArticlesJSON) -> [Article] {
         var articles = [Article]()
         for jsonArticle in json.articles {
-            if let author = jsonArticle.author {
-                let new = Article(date: .now, imageURL: nil, author: author, description: "", detailURL: nil, content: "")
+            if let author = jsonArticle.author, let description = jsonArticle.description, let urlToImage = jsonArticle.urlToImage, let date = ISO8601DateFormatter().date(from: jsonArticle.publishedAt)  {
+                let new = Article(title: jsonArticle.title, date: date, imageURL: urlToImage, author: author, description: description, detailURL: nil, content: jsonArticle.content)
                 articles.append(new)
             }
         }

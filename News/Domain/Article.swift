@@ -7,6 +7,7 @@
 import Foundation
 
 struct Article {
+    let title: String
     let date: Date
     let imageURL: URL?
     let author: String

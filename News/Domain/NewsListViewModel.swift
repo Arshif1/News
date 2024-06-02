@@ -15,8 +15,20 @@ class NewsListViewModel: ObservableObject {
         articles.map(transform)
     }
     
+    func displayDate(from date: Date) -> String {
+        let formatter = DateFormatter()
+        let dateformat = "EEEE, d MMM yyyy"
+        formatter.dateFormat = dateformat
+        return formatter.string(from: date)
+    }
+        
     private func transform(_ article: Article) -> ArticleItem {
-        ArticleItem(id: UUID(), imageURL: article.imageURL, date: "aDate", title: "aTitle", description: article.description, publishedBy: "Published By: \(article.author)")
+        ArticleItem(id: UUID(),
+                    imageURL: article.imageURL,
+                    date: displayDate(from: article.date),
+                    title: article.title,
+                    description: article.description,
+                    publishedBy: "Published By: \(article.author)")
     }
     
     let articleLoader = ArticleLoader()
@@ -27,9 +39,13 @@ class NewsListViewModel: ObservableObject {
     
     private func loadNews() {
         Task {
-            guard let loadedArticles = try? await articleLoader.loadNews() else { return }
-            await MainActor.run {
-                self.articles = loadedArticles
+            do {
+                let loadedArticles = try await articleLoader.loadNews()
+                await MainActor.run {
+                    self.articles = loadedArticles
+                }
+            } catch {
+                print(error)
             }
         }
     }
