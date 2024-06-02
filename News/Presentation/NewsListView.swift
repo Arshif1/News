@@ -11,11 +11,11 @@ import SwiftUI
 
 struct NewsListView: View {
     
-    let news: [News] = News.dummyNews()
-    
+    @ObservedObject private var newsListViewModel = NewsListViewModel()
+
     var body: some View {
         GeometryReader { metrices in
-            List(news) { item in
+            List(newsListViewModel.newsItems) { item in
                 NewsCell(height: metrices.size.width * 128 / 345, news: item)
                     .listRowInsets(.init())
                     .padding(.horizontal, 15)
