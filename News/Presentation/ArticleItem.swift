@@ -13,7 +13,7 @@ struct ArticleItem: Identifiable {
     let date: String
     let title: String
     let description: String
-    let publishedBy: String?
+    let publishedBy: String
     
     static func dummyNews() -> [ArticleItem] {
         [

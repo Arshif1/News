@@ -9,13 +9,28 @@ import Foundation
 
 class NewsListViewModel: ObservableObject {
     
-    @Published var articles: [Article] = []
+    private let articleLoader = ArticleLoader()
     
+    @Published private var articles: [Article] = []
+        
     var newsItems: [ArticleItem] {
         articles.map(transform)
     }
     
-    func displayDate(from date: Date) -> String {
+    init() {
+        loadNews()
+    }
+    
+    private func loadNews() {
+        Task {
+            guard let loadedArticles = try? await articleLoader.loadNews() else { return }
+            await MainActor.run {
+                self.articles = loadedArticles
+            }
+        }
+    }
+    
+    private func displayDate(from date: Date) -> String {
         let formatter = DateFormatter()
         let dateformat = "EEEE, d MMM yyyy"
         formatter.dateFormat = dateformat
@@ -30,24 +45,4 @@ class NewsListViewModel: ObservableObject {
                     description: article.description,
                     publishedBy: "Published By: \(article.author)")
     }
-    
-    let articleLoader = ArticleLoader()
-    
-    init() {
-        loadNews()
-    }
-    
-    private func loadNews() {
-        Task {
-            do {
-                let loadedArticles = try await articleLoader.loadNews()
-                await MainActor.run {
-                    self.articles = loadedArticles
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
 }
