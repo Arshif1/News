@@ -15,36 +15,22 @@ class ArticleLoader {
         "https://newsapi.org/v2/everything?q=apple&from=2024-05-29&to=2024-05-29&sortBy=popularity&apiKey=\(apiKey)"
     }
     
-    
     func loadNews() async throws -> [Article] {
         guard let url = URL(string: urlString) else { return [] }
         let (data, _) = try await URLSession.shared.data(from: url)
-        do {
-            let dto = try JSONDecoder().decode(ArticlesDTO.self, from: data)
-            return transform(dto: dto)
-        } catch {
-            print(error)
-            return []
-        }
-
+        let json = try JSONDecoder().decode(ArticlesJSON.self, from: data)
+        let articles: [Article] = transform(json: json)
+        return articles
     }
     
-    private func transform(dto: ArticlesDTO) -> [Article] {
-        var returnable = [Article]()
-        
-        for articleDTo in dto.articles {
-            
-            if let author = articleDTo.author {
+    private func transform(json: ArticlesJSON) -> [Article] {
+        var articles = [Article]()
+        for jsonArticle in json.articles {
+            if let author = jsonArticle.author {
                 let new = Article(date: .now, imageURL: nil, author: author, description: "", detailURL: nil, content: "")
-                returnable.append(new)
+                articles.append(new)
             }
-            
         }
-        
-        return returnable
+        return articles
     }
-
 }
-
-
-

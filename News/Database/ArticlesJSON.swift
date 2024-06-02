@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ArticlesDTO: Decodable {
+struct ArticlesJSON: Decodable {
     
-    struct ArticleDTO: Decodable {
+    struct ArticleJSON: Decodable {
         let author: String?
     }
     
     let status: String
-    let articles: [ArticleDTO]
+    let articles: [ArticleJSON]
 }

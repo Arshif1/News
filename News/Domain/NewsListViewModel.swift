@@ -13,14 +13,10 @@ class NewsListViewModel: ObservableObject {
     
     var newsItems: [ArticleItem] {
         articles.map(transform)
-       
     }
     
     private func transform(_ article: Article) -> ArticleItem {
-        let author = article.author ?? ""
-        
-            return ArticleItem(id: UUID(), imageURL: article.imageURL, date: "aDate", title: "aTitle", description: article.description, publishedBy: "Published By: \(author)")
-        
+        ArticleItem(id: UUID(), imageURL: article.imageURL, date: "aDate", title: "aTitle", description: article.description, publishedBy: "Published By: \(article.author)")
     }
     
     let articleLoader = ArticleLoader()
