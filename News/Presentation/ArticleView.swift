@@ -1,5 +1,5 @@
 //
-//  NewsCell.swift
+//  ArticleView.swift
 //  News
 //
 //  Created by Arshif on 30/05/2024.
@@ -14,17 +14,6 @@ struct ArticleView: View {
     let article: ArticleItem
     
     var body: some View {
-        NavigationStack {
-            NavigationLink {
-                navigationDestination
-                    .navigationTitle("Detail")
-            } label: {
-                content
-            }
-        }
-    }
-    
-    private var content: some View {
         VStack(alignment: .leading, spacing: 5) {
             Color.red
                 .frame(height: height)
@@ -41,9 +30,5 @@ struct ArticleView: View {
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .semibold, design: .serif))
         }
-    }
-    
-    private var navigationDestination: some View {
-        ArticleDetailView(article: article)
     }
 }
