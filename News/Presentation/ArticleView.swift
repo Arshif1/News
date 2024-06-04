@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct NewsCell: View {
+struct ArticleView: View {
     
     let height: CGFloat
-    let news: ArticleItem
+    let article: ArticleItem
     
     var body: some View {
         NavigationStack {
@@ -28,25 +28,22 @@ struct NewsCell: View {
         VStack(alignment: .leading, spacing: 5) {
             Color.red
                 .frame(height: height)
-            Text(news.date)
+            Text(article.date)
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .light, design: .serif))
-            Text(news.title)
+            Text(article.title)
                 .foregroundStyle(Color.titleColor)
                 .font(.system(size: 14, weight: .semibold, design: .serif))
-            Text(news.description)
+            Text(article.description)
                 .foregroundStyle(Color.black)
                 .font(.system(size: 12, weight: .light, design: .serif))
-            Text(news.publishedBy)
+            Text(article.publishedBy)
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .semibold, design: .serif))
         }
     }
     
     private var navigationDestination: some View {
-        ArticleDetailView(item: ArticleDetailItem(date: news.date,
-                                                  title: news.title,
-                                                  publishedBy: news.publishedBy,
-                                                  content: news.description))
+        ArticleDetailView(article: article)
     }
 }

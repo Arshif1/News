@@ -16,7 +16,7 @@ struct NewsListView: View {
     var body: some View {
         GeometryReader { metrices in
             List(newsListViewModel.newsItems) { item in
-                NewsCell(height: metrices.size.width * 128 / 345, news: item)
+                ArticleView(height: metrices.size.width * 128 / 345, article: item)
                     .listRowInsets(.init())
                     .padding(.horizontal, 15)
                     .padding(.bottom, 16)

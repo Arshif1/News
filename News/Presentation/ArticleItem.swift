@@ -13,13 +13,14 @@ struct ArticleItem: Identifiable {
     let date: String
     let title: String
     let description: String
+    let content: String
     let publishedBy: String
     
     static func dummyNews() -> [ArticleItem] {
         [
-            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "They had the artsy, rustic venue, the tailored dress and a guest list including about 150 of their closest friends and family. But the pandemic had other plans, forcing Carly Chalmers and Mitchell Gauvin to make a difficult decision about their wedding", publishedBy: "Published by Kristen Rogers"),
-            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "They had the artsy, rustic venue, the tailored dress and a guest list including about 150 of their closest friends and family. But the pandemic had other plans, forcing Carly Chalmers and Mitchell Gauvin to make a difficult decision about their wedding... Read More", publishedBy: "by Kristen Rogers"),
-            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "a Description", publishedBy: "by Kristen Rogers")
+            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "They had the artsy, rustic venue, the tailored dress and a guest list including about 150 of their closest friends and family. But the pandemic had other plans, forcing Carly Chalmers and Mitchell Gauvin to make a difficult decision about their wedding", content: "a content", publishedBy: "Published by Kristen Rogers"),
+            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "They had the artsy, rustic venue, the tailored dress and a guest list including about 150 of their closest friends and family. But the pandemic had other plans, forcing Carly Chalmers and Mitchell Gauvin to make a difficult decision about their wedding... Read More", content: "a content", publishedBy: "by Kristen Rogers"),
+            ArticleItem(id: UUID(), imageURL: nil, date: "Sunday, 9 May 2021", title: "What to do if you're planning or attending a wedding during the pandemic", description: "a Description", content: "a content", publishedBy: "by Kristen Rogers")
         ]
     }
 }

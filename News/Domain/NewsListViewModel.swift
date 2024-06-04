@@ -43,6 +43,7 @@ class NewsListViewModel: ObservableObject {
                     date: displayDate(from: article.date),
                     title: article.title,
                     description: article.description,
+                    content: article.content,
                     publishedBy: "Published By: \(article.author)")
     }
 }
