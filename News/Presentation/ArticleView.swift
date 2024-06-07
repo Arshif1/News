@@ -10,13 +10,15 @@ import SwiftUI
 
 struct ArticleView: View {
     
-    let height: CGFloat
     let article: ArticleItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Color.red
-                .frame(height: height)
+            AsyncImage(url: article.imageURL, content: { image in
+                image.resizable()
+            }, placeholder: {
+                ProgressView()
+            }).frame(height: 200)
             Text(article.date)
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .light, design: .serif))

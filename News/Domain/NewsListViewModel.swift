@@ -44,6 +44,7 @@ class NewsListViewModel: ObservableObject {
                     title: article.title,
                     description: article.description,
                     content: article.content,
+                    url: article.detailURL,
                     publishedBy: "Published By: \(article.author)")
     }
 }

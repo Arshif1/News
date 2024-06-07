@@ -10,6 +10,7 @@ import SwiftUI
 struct ArticleDetailView: View {
     
     let article: ArticleItem
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         ZStack {
@@ -21,11 +22,15 @@ struct ArticleDetailView: View {
                 .background(Color.titleViewBackgroundColor, in: RoundedRectangle(cornerRadius: 10))
                 .padding(.horizontal, 24)
                 .frame(height: 140)
-        }
+        }.navigationTitle("Detail")
     }
     
     private var imageView: some View {
-        Color.black
+        AsyncImage(url: article.imageURL) { image in
+            image.resizable()
+        } placeholder: {
+            ProgressView()
+        }
     }
     
     private var contentView: some View {
@@ -58,6 +63,12 @@ struct ArticleDetailView: View {
             .padding(.top)
             .padding(.bottom)
             Spacer()
+            
+            if let url = article.url {
+                Button("Go to Webpage") {
+                    openURL(url)
+                }
+            }
         }
     }
 }
