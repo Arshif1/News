@@ -22,21 +22,14 @@ class NewsCell: UITableViewCell {
     
     private func setupViews() {
         
-        let categoryColor = UIColor(red: 105/255, green: 189/255, blue: 253/255, alpha: 1)
-        let titleColor = UIColor(red: 24/255, green: 14/255, blue: 25/255, alpha: 1)
-        let publishedByColor = UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)
-        let dateColor = UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)
+        labelTitle.font = .boldHeader2
+        labelPublishedBy.font = .mediumHeader2
+        labelDate.font = .mediumHeader2
+        labelCategory.font = .boldHeader3
         
-        
-        labelTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        labelPublishedBy.font = UIFont.systemFont(ofSize: 13, weight: .medium)
-        labelDate.font = UIFont.systemFont(ofSize: 13, weight: .medium)
-        labelCategory.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        
-        labelTitle.textColor = titleColor
-        labelPublishedBy.textColor = publishedByColor
-        labelCategory.textColor = categoryColor
-        labelDate.textColor = dateColor
-        
+        labelTitle.textColor = .primaryTextColor
+        labelPublishedBy.textColor = .greyTextColor
+        labelCategory.textColor = .highlightTextColor
+        labelDate.textColor = .greyTextColor
     }
 }
