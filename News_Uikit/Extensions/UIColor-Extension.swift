@@ -20,4 +20,8 @@ extension UIColor {
     static var highlightTextColor: UIColor {
         UIColor(named: "highlightText")!
     }
+    
+    static var mainTextColor: UIColor {
+        UIColor(named: "mainText")!
+    }
 }

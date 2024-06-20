@@ -21,7 +21,7 @@ class NewsCell: UITableViewCell {
     }
     
     private func setupViews() {
-        
+        selectionStyle = .none
         labelTitle.font = .boldHeader2
         labelPublishedBy.font = .mediumHeader2
         labelDate.font = .mediumHeader2
