@@ -23,4 +23,8 @@ extension Color {
     static var mainTextColor: Color {
         Color("mainText")
     }
+    
+    static var seperatorColor: Color {
+        Color("seperator")
+    }
 }

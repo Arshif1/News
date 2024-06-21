@@ -8,28 +8,40 @@
 import SwiftUI
 
 struct ArticleView: View {
+    
     let news: Article
+    @Binding var path: NavigationPath
     
     var body: some View {
         HStack(spacing: 15) {
-            Color.red
-                .frame(width: 137, height: 140)
-            cellWrittenContent
+            imageView
+            contentView
+        }
+        .frame(height: 140)
+        .onTapGesture {
+            path.append(news)
         }
     }
     
-    var cellWrittenContent: some View {
+    private var imageView: some View {
+        Color.red
+            .frame(width: 137)
+    }
+    
+    private var contentView: some View {
         VStack(alignment: .leading, spacing: 5) {
             
             Text(news.title)
                 .foregroundColor(.primaryTextColor)
                 .font(.boldHeader2)
                 .lineLimit(3)
+            Spacer()
             
-            Text(news.author ?? "")
+            Text(news.author)
                 .foregroundColor(.greyTextColor)
                 .font(.mediumHeader2)
-                .padding(.vertical, 10)
+                
+            
             
             HStack(spacing: 10) {
                 Text(news.category)
@@ -39,14 +51,20 @@ struct ArticleView: View {
                     .foregroundColor(.greyTextColor)
                     .font(.mediumHeader2)
             }
+            
+            Color.seperatorColor
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .frame(height: 1)
+            
         }
         .frame(maxWidth: .infinity)
+        
     }
 
 }
 
 #Preview {
-    ArticleView(news: Article(title: "Monarch population soars 4,900 percent since last year in thrilling 2021 western migration", author: "By Andy Corbley", publishedAt: "5m ago", category: "Entertainment", content: "cshbjacbjhscjhws bcjbsj`ckjs"))
+    ArticleView(news: Article(title: "Monarch population soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percent since last year in thrilling 2021 western migration", author: "By Andy Corbley", publishedAt: "5m ago", category: "Entertainment", content: "cshbjacbjhscjhws bcjbsj`ckjs"), path: .constant(NavigationPath()))
 }
   
 
