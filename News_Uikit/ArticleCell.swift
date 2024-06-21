@@ -1,5 +1,5 @@
 //
-//  NewsCell.swift
+//  ArticleCell.swift
 //  News_Uikit
 //
 //  Created by Arshif on 19/06/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsCell: UITableViewCell {
+class ArticleCell: UITableViewCell {
     
     @IBOutlet private weak var newsImageView: UIImageView!
     @IBOutlet private weak var labelTitle: UILabel!
@@ -27,7 +27,7 @@ class NewsCell: UITableViewCell {
         labelDate.font = .mediumHeader2
         labelCategory.font = .boldHeader3
         
-        labelTitle.textColor = .primaryTextColor
+        labelTitle.textColor = .secondaryTextColor
         labelPublishedBy.textColor = .greyTextColor
         labelCategory.textColor = .highlightTextColor
         labelDate.textColor = .greyTextColor

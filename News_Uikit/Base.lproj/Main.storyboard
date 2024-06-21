@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Articles View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="News_Uikit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArticlesViewController" customModule="News_Uikit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="181" id="eyZ-NA-dGR" customClass="NewsCell" customModule="News_Uikit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleCell" rowHeight="181" id="eyZ-NA-dGR" customClass="ArticleCell" customModule="News_Uikit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eyZ-NA-dGR" id="jPH-1X-QGf">
@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="1385.4961832061067" y="-129.57746478873241"/>
         </scene>
-        <!--Detail News View Controller-->
+        <!--Article Detail View Controller-->
         <scene sceneID="U5i-Po-54z">
             <objects>
-                <viewController storyboardIdentifier="DetailNewsViewController" id="AhE-4W-CSB" customClass="DetailNewsViewController" customModule="News_Uikit" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailViewController" id="AhE-4W-CSB" customClass="ArticleDetailViewController" customModule="News_Uikit" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ovz-nP-Qak">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,11 +201,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentLabel" destination="iAj-1T-ow9" id="Qto-zN-Cfx"/>
-                        <outlet property="newsImageView" destination="vb3-qf-Jcj" id="QL6-RJ-3KH"/>
-                        <outlet property="publishedAtLabel" destination="zP3-9j-oUG" id="K6l-gG-LqY"/>
-                        <outlet property="publishedByLabel" destination="obx-6A-LNy" id="oxE-3e-biT"/>
-                        <outlet property="titleLabel" destination="URW-6i-CPJ" id="XKd-Ds-YIs"/>
+                        <outlet property="imageViewNews" destination="vb3-qf-Jcj" id="QL6-RJ-3KH"/>
+                        <outlet property="labelContent" destination="iAj-1T-ow9" id="Qto-zN-Cfx"/>
+                        <outlet property="labelPublishedAt" destination="zP3-9j-oUG" id="K6l-gG-LqY"/>
+                        <outlet property="labelPublishedBy" destination="obx-6A-LNy" id="oxE-3e-biT"/>
+                        <outlet property="labelTitle" destination="URW-6i-CPJ" id="XKd-Ds-YIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pT4-uI-c7E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

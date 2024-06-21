@@ -17,18 +17,18 @@
 		6351DC602C234AD000266A83 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC5F2C234AD000266A83 /* UIColor-Extension.swift */; };
 		6351DC632C234B0300266A83 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6351DC622C234B0300266A83 /* Color.xcassets */; };
 		6351DC652C234C6C00266A83 /* UIFont-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC642C234C6C00266A83 /* UIFont-Extension.swift */; };
-		6351DC672C245F9600266A83 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC662C245F9600266A83 /* DetailNewsViewController.swift */; };
-		6351DC692C24633D00266A83 /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC682C24633D00266A83 /* NewsArticle.swift */; };
+		6351DC672C245F9600266A83 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC662C245F9600266A83 /* ArticleDetailViewController.swift */; };
+		6351DC692C24633D00266A83 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351DC682C24633D00266A83 /* Article.swift */; };
 		6363B3BD2C23255B00A12147 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3BC2C23255B00A12147 /* NewsApp.swift */; };
 		6363B3C12C23255C00A12147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6363B3C02C23255C00A12147 /* Assets.xcassets */; };
 		6363B3C42C23255C00A12147 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6363B3C32C23255C00A12147 /* Preview Assets.xcassets */; };
 		6363B3D12C23277A00A12147 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3D02C23277A00A12147 /* AppDelegate.swift */; };
 		6363B3D32C23277A00A12147 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3D22C23277A00A12147 /* SceneDelegate.swift */; };
-		6363B3D52C23277A00A12147 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3D42C23277A00A12147 /* ViewController.swift */; };
+		6363B3D52C23277A00A12147 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3D42C23277A00A12147 /* ArticlesViewController.swift */; };
 		6363B3D82C23277A00A12147 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6363B3D72C23277A00A12147 /* Base */; };
 		6363B3DA2C23277C00A12147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6363B3D92C23277C00A12147 /* Assets.xcassets */; };
 		6363B3DD2C23277C00A12147 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6363B3DC2C23277C00A12147 /* Base */; };
-		6363B3E32C2329CC00A12147 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3E22C2329CB00A12147 /* NewsCell.swift */; };
+		6363B3E32C2329CC00A12147 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6363B3E22C2329CB00A12147 /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		6351DC5F2C234AD000266A83 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		6351DC622C234B0300266A83 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		6351DC642C234C6C00266A83 /* UIFont-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont-Extension.swift"; sourceTree = "<group>"; };
-		6351DC662C245F9600266A83 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
-		6351DC682C24633D00266A83 /* NewsArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
+		6351DC662C245F9600266A83 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		6351DC682C24633D00266A83 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6363B3B92C23255B00A12147 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6363B3BC2C23255B00A12147 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		6363B3C02C23255C00A12147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,12 +51,12 @@
 		6363B3CE2C23277A00A12147 /* News_Uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News_Uikit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6363B3D02C23277A00A12147 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6363B3D22C23277A00A12147 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6363B3D42C23277A00A12147 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6363B3D42C23277A00A12147 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		6363B3D72C23277A00A12147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6363B3D92C23277C00A12147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6363B3DC2C23277C00A12147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6363B3DE2C23277C00A12147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6363B3E22C2329CB00A12147 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		6363B3E22C2329CB00A12147 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,10 +160,10 @@
 				6351DC5E2C234AA800266A83 /* Extensions */,
 				6363B3D02C23277A00A12147 /* AppDelegate.swift */,
 				6363B3D22C23277A00A12147 /* SceneDelegate.swift */,
-				6363B3D42C23277A00A12147 /* ViewController.swift */,
-				6351DC682C24633D00266A83 /* NewsArticle.swift */,
-				6351DC662C245F9600266A83 /* DetailNewsViewController.swift */,
-				6363B3E22C2329CB00A12147 /* NewsCell.swift */,
+				6363B3D42C23277A00A12147 /* ArticlesViewController.swift */,
+				6351DC682C24633D00266A83 /* Article.swift */,
+				6351DC662C245F9600266A83 /* ArticleDetailViewController.swift */,
+				6363B3E22C2329CB00A12147 /* ArticleCell.swift */,
 				6363B3D62C23277A00A12147 /* Main.storyboard */,
 				6363B3D92C23277C00A12147 /* Assets.xcassets */,
 				6363B3DB2C23277C00A12147 /* LaunchScreen.storyboard */,
@@ -289,12 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6363B3D52C23277A00A12147 /* ViewController.swift in Sources */,
+				6363B3D52C23277A00A12147 /* ArticlesViewController.swift in Sources */,
 				6351DC602C234AD000266A83 /* UIColor-Extension.swift in Sources */,
 				6363B3D12C23277A00A12147 /* AppDelegate.swift in Sources */,
-				6363B3E32C2329CC00A12147 /* NewsCell.swift in Sources */,
-				6351DC672C245F9600266A83 /* DetailNewsViewController.swift in Sources */,
-				6351DC692C24633D00266A83 /* NewsArticle.swift in Sources */,
+				6363B3E32C2329CC00A12147 /* ArticleCell.swift in Sources */,
+				6351DC672C245F9600266A83 /* ArticleDetailViewController.swift in Sources */,
+				6351DC692C24633D00266A83 /* Article.swift in Sources */,
 				6351DC652C234C6C00266A83 /* UIFont-Extension.swift in Sources */,
 				6363B3D32C23277A00A12147 /* SceneDelegate.swift in Sources */,
 			);

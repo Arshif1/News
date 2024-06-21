@@ -13,15 +13,15 @@ extension UIColor {
         UIColor(named: "primaryText")!
     }
     
+    static var secondaryTextColor: UIColor {
+        UIColor(named: "secondaryText")!
+    }
+    
     static var greyTextColor: UIColor {
         UIColor(named: "greyText")!
     }
     
     static var highlightTextColor: UIColor {
         UIColor(named: "highlightText")!
-    }
-    
-    static var mainTextColor: UIColor {
-        UIColor(named: "mainText")!
     }
 }
