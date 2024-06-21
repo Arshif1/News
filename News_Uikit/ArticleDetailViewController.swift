@@ -22,6 +22,7 @@ class ArticleDetailViewController: UIViewController {
     }
     
     private func setupViews() {
+        title = "Article"
         
         labelTitle.font = .boldHeader1
         labelPublishedBy.font = .mediumHeader2

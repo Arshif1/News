@@ -10,9 +10,11 @@ import UIKit
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak private var tableView: UITableView!
+    private var articles: [Article] = Array(repeating: Article.create(), count: 100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "News"
         setupTableView()
     }
 
@@ -22,11 +24,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
+        cell.article = articles[indexPath.row]
         return cell
     }
     
