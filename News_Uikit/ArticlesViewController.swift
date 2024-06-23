@@ -8,17 +8,33 @@
 import UIKit
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak private var tableView: UITableView!
-    private var articles: [Article] = Array(repeating: Article.create(), count: 100)
+    
+    private var viewModel = ArticlesViewModel()
+    
+     private var articles = [Article]() {
+         didSet {
+             tableView.reloadData()
+         }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "News"
-        setupTableView()
+        setupView()
+        setupViewModel()
+    }
+    
+    private func setupViewModel() {
+        viewModel.onLoadArticles = { articles in
+            self.articles = articles
+        }
+        viewModel.loadArticle()
     }
 
-    private func setupTableView() {
+    private func setupView() {
+        title = "News"
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -36,6 +52,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailViewController = storyboard.instantiateViewController(withIdentifier: "ArticleDetailViewController") as! ArticleDetailViewController
+        detailViewController.article = articles[indexPath.row]
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

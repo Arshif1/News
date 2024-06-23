@@ -42,8 +42,8 @@ class ArticleCell: UITableViewCell {
     }
     
     private func configure(with article: Article) {
-        labelTitle.text = article.title
-        labelDate.text = article.publishedAt
-        labelPublishedBy.text = article.author
+        labelTitle.text = article.article_id
+        labelDate.text = article.pubDate
+        labelPublishedBy.text = article.pubDate
     }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class ArticleDetailViewController: UIViewController {
 
+    var article: Article?
+    
     @IBOutlet private weak var imageViewNews: UIImageView!
     @IBOutlet private weak var labelTitle: UILabel!
     @IBOutlet private weak var labelPublishedBy: UILabel!
@@ -36,12 +38,10 @@ class ArticleDetailViewController: UIViewController {
     }
     
     private func populateArticle() {
-        
-        let article = Article.create()
-        
+        guard let article else { return }
         labelTitle.text = article.title
-        labelPublishedBy.text = article.author
-        labelPublishedAt.text = article.publishedAt
+        labelPublishedBy.text = nil
+        labelPublishedAt.text = article.pubDate
         labelContent.text = article.content
     }
 }
