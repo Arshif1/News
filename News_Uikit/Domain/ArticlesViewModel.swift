@@ -10,38 +10,61 @@ class ArticlesViewModel {
     
     var onLoadArticles: (([Article]) -> ())?
     var shouldShowActivityIndicator: ((Bool) -> Void)?
-    private let urlString = "https://newsdata.io/api/1/latest?apikey=pub_457050f3022a220f2fee7f26b7bedf2ce8912&language=en&country=ae"
+    
+    private var base: String {
+        "https://newsdata.io/api/1/latest?apikey=pub_457050f3022a220f2fee7f26b7bedf2ce8912&language=en"
+    }
+    
+    private var urlString: String {
+        guard let nextPage else {
+            return base
+        }
+        return base + "&page=\(nextPage)"
+    }
+    
+    var nextPage: String?
+    private var isLoading = false
     
     func loadArticles() {
+        guard !isLoading else { return }
+        isLoading = true
         shouldShowActivityIndicator?(true)
         Task {
             do {
-                let articles = try await fetchArticle()
-                await handleJson(with: articles)
+                let response = try await fetchJSONResponse()
+                await handleJsonResponse(json: response)
             } catch {
                 await handleFailure()
             }
         }
     }
     
-    private func fetchArticle() async throws -> [Article] {
-        guard let url = URL(string: urlString) else { return [] }
+    private func fetchJSONResponse() async throws -> ArticleResults {
+        guard let url = URL(string: urlString) else {
+            throw NSError(domain: "invalid url", code: 0)
+        }
         let (data, _) = try await URLSession.shared.data(from: url)
-        let json = try JSONDecoder().decode(ArticleResults.self, from: data)
-        let articles: [Article] = json.results.compactMap(transform)
-        return articles
+        return try JSONDecoder().decode(ArticleResults.self, from: data)
     }
     
-    private func handleJson(with json: [Article]) async {
+    private func handleJsonResponse(json: ArticleResults) async {
+        nextPage = json.nextPage
+        let articles = json.results.compactMap(transform)
+        await handleArticles(articles: articles)
+    }
+    
+    private func handleArticles(articles: [Article]) async {
         await MainActor.run {
-            onLoadArticles?(json)
+            onLoadArticles?(articles)
             shouldShowActivityIndicator?(false)
+            isLoading = false
         }
     }
     
     private func handleFailure() async {
         await MainActor.run {
             shouldShowActivityIndicator?(false)
+            isLoading = false
         }
     }
     

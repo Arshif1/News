@@ -40,7 +40,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         viewModel.onLoadArticles = { articles in
-            self.articles = articles
+            self.articles.append(contentsOf: articles)
         }
         
         viewModel.loadArticles()
@@ -61,5 +61,15 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         let detailViewController = storyboard.instantiateViewController(withIdentifier: "ArticleDetailViewController") as! ArticleDetailViewController
         detailViewController.article = articles[indexPath.row]
         navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            viewModel.loadArticles()
+        }
     }
 }
