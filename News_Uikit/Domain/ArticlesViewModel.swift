@@ -10,7 +10,7 @@ class ArticlesViewModel {
     
     var onLoadArticles: (([Article]) -> ())?
     var shouldShowActivityIndicator: ((Bool) -> Void)?
-    private let urlString = "https://newsdata.io/api/1/latest?apikey=pub_457050f3022a220f2fee7f26b7bedf2ce8912&q=pegasus&language=en"
+    private let urlString = "https://newsdata.io/api/1/latest?apikey=pub_457050f3022a220f2fee7f26b7bedf2ce8912&language=en&country=ae"
     
     func fetchArticle() async throws -> [Article] {
         guard let url = URL(string: urlString) else { return [] }
@@ -22,31 +22,38 @@ class ArticlesViewModel {
     
     func loadArticles() {
         shouldShowActivityIndicator?(true)
-        
         Task {
-            let articles = try await fetchArticle()
-            await MainActor.run {
-                handleJson(with: articles)
+            do {
+                let articles = try await fetchArticle()
+                await handleJson(with: articles)
+            } catch {
+                await handleFailure()
             }
         }
     }
     
-    func handleJson(with json: [Article]) {
-        onLoadArticles?(json)
-        shouldShowActivityIndicator?(false)
+    func handleJson(with json: [Article]) async {
+        await MainActor.run {
+            onLoadArticles?(json)
+            shouldShowActivityIndicator?(false)
+        }
+    }
+    
+    private func handleFailure() async {
+        await MainActor.run {
+            shouldShowActivityIndicator?(false)
+        }
     }
     
     func transform(_ jsonArticle: ArticleJson) -> Article? {
         guard let title = jsonArticle.title,
-              let creator = jsonArticle.creator,
               let category = jsonArticle.category.first,
-              let author = jsonArticle.creator?.first,
-              let content = jsonArticle.content else { return nil }
+              let content = jsonArticle.description else { return nil }
         return Article(title: title,
-                              author: author,
-                              publishedAt: jsonArticle.pubDate,
-                              category: category,
-                              imageURL: jsonArticle.image_url,
-                              content: content)
+                       author: jsonArticle.creator?.first,
+                       publishedAt: jsonArticle.pubDate,
+                       category: category,
+                       imageURL: jsonArticle.image_url,
+                       content: content)
     }
 }

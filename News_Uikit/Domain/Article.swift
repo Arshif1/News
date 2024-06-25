@@ -9,7 +9,7 @@ import Foundation
 
 struct Article {
     let title: String
-    let author: String
+    let author: String?
     let publishedAt: String
     let category: String
     let imageURL: URL?

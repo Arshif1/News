@@ -12,7 +12,7 @@ struct ArticleJson: Decodable {
     let article_id: String
     let title: String?
     let pubDate: String
-    let content: String?
+    let description: String?
     let image_url: URL?
     let creator: [String]?
     let category: [String]

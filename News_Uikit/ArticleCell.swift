@@ -45,5 +45,6 @@ class ArticleCell: UITableViewCell {
         labelDate.text = article.publishedAt
         labelPublishedBy.text = article.author
         labelCategory.text = article.category.capitalized
+        newsImageView.loadImage(from: article.imageURL, placeholder: nil)
     }
 }

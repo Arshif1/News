@@ -43,5 +43,6 @@ class ArticleDetailViewController: UIViewController {
         labelPublishedBy.text = article.author
         labelPublishedAt.text = article.publishedAt
         labelContent.text = article.content
+        imageViewNews.loadImage(from: article.imageURL)
     }
 }
