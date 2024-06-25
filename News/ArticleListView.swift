@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ArticleListView: View {
     
+    @ObservedObject var viewModel = ArticlesViewModel()
     @State var path = NavigationPath()
-    let articles: [Article]
     
     var body: some View {
         NavigationStack(path: $path) {
-            List(articles) { item in
+            List(viewModel.articles) { item in
                 ArticleView(news: item, path: $path)
                     .padding(5)
                     .listRowInsets(.init())

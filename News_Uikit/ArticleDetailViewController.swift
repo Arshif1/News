@@ -40,8 +40,8 @@ class ArticleDetailViewController: UIViewController {
     private func populateArticle() {
         guard let article else { return }
         labelTitle.text = article.title
-        labelPublishedBy.text = nil
-        labelPublishedAt.text = article.pubDate
+        labelPublishedBy.text = article.author
+        labelPublishedAt.text = article.publishedAt
         labelContent.text = article.content
     }
 }

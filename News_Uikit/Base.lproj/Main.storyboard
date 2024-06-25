@@ -99,18 +99,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="l7c-pi-2M9">
+                                <rect key="frame" x="186.66666666666666" y="450.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="l7c-pi-2M9" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="0Wf-p6-bMh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="3lZ-4j-CMA" secondAttribute="top" id="3cm-MZ-Oj6"/>
                             <constraint firstItem="3lZ-4j-CMA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AHE-Ey-uZU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3lZ-4j-CMA" secondAttribute="bottom" id="DYh-oA-jum"/>
+                            <constraint firstItem="l7c-pi-2M9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HAg-k4-G61"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3lZ-4j-CMA" secondAttribute="trailing" id="mzf-vs-O2k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y6h-wl-Jmb"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="l7c-pi-2M9" id="Xqb-fB-2al"/>
                         <outlet property="tableView" destination="3lZ-4j-CMA" id="M2m-hQ-NcG"/>
                     </connections>
                 </viewController>
@@ -239,7 +245,7 @@
     </scenes>
     <resources>
         <namedColor name="seperator">
-            <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

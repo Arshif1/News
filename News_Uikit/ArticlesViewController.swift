@@ -9,6 +9,8 @@ import UIKit
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak private var tableView: UITableView!
     
     private var viewModel = ArticlesViewModel()
@@ -25,18 +27,23 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         setupViewModel()
     }
     
+    private func setupView() {
+        title = "News"
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     private func setupViewModel() {
+        
+        viewModel.shouldShowActivityIndicator = { shouldShow in
+            shouldShow ? self.activityIndicatorView.startAnimating() : self.activityIndicatorView.stopAnimating()
+        }
+        
         viewModel.onLoadArticles = { articles in
             self.articles = articles
         }
-        viewModel.loadArticle()
-    }
-
-    private func setupView() {
-        title = "News"
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        viewModel.loadArticles()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

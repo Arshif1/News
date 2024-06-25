@@ -1,21 +1,23 @@
 //
-//  Article.swift
-//  News_Uikit
+//  ArticleJson.swift
+//  News
 //
-//  Created by Arshif on 23/06/2024.
+//  Created by Arshif on 25/06/2024.
 //
 
 import Foundation
 
-struct Article: Decodable {
+struct ArticleJson: Decodable {
     
     let article_id: String
     let title: String?
     let pubDate: String
     let content: String?
     let image_url: String?
+    let creator: [String]?
+    let category: [String]
 }
 
 struct ArticleResults : Decodable {
-    let results: [Article]
+    let results: [ArticleJson]
 }

@@ -40,7 +40,7 @@ struct ArticleView: View {
             Text(news.author)
                 .foregroundColor(.greyTextColor)
                 .font(.mediumHeader2)
-                
+            
             
             
             HStack(spacing: 10) {
@@ -58,14 +58,5 @@ struct ArticleView: View {
             
         }
         .frame(maxWidth: .infinity)
-        
     }
-
 }
-
-#Preview {
-    ArticleView(news: Article(title: "Monarch population soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percentpopulation soars 4,900 percent since last year in thrilling 2021 western migration", author: "By Andy Corbley", publishedAt: "5m ago", category: "Entertainment", content: "cshbjacbjhscjhws bcjbsj`ckjs"), path: .constant(NavigationPath()))
-}
-  
-
-

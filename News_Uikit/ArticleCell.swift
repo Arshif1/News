@@ -38,12 +38,12 @@ class ArticleCell: UITableViewCell {
         labelPublishedBy.textColor = .greyTextColor
         labelCategory.textColor = .highlightTextColor
         labelDate.textColor = .greyTextColor
-        labelCategory.isHidden = true
     }
     
     private func configure(with article: Article) {
-        labelTitle.text = article.article_id
-        labelDate.text = article.pubDate
-        labelPublishedBy.text = article.pubDate
+        labelTitle.text = article.title
+        labelDate.text = article.publishedAt
+        labelPublishedBy.text = article.author
+        labelCategory.text = article.category.capitalized
     }
 }
