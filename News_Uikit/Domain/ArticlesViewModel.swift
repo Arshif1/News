@@ -12,14 +12,6 @@ class ArticlesViewModel {
     var shouldShowActivityIndicator: ((Bool) -> Void)?
     private let urlString = "https://newsdata.io/api/1/latest?apikey=pub_457050f3022a220f2fee7f26b7bedf2ce8912&language=en&country=ae"
     
-    func fetchArticle() async throws -> [Article] {
-        guard let url = URL(string: urlString) else { return [] }
-        let (data, _) = try await URLSession.shared.data(from: url)
-        let json = try JSONDecoder().decode(ArticleResults.self, from: data)
-        let articles: [Article] = json.results.compactMap(transform)
-        return articles
-    }
-    
     func loadArticles() {
         shouldShowActivityIndicator?(true)
         Task {
@@ -32,7 +24,15 @@ class ArticlesViewModel {
         }
     }
     
-    func handleJson(with json: [Article]) async {
+    private func fetchArticle() async throws -> [Article] {
+        guard let url = URL(string: urlString) else { return [] }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let json = try JSONDecoder().decode(ArticleResults.self, from: data)
+        let articles: [Article] = json.results.compactMap(transform)
+        return articles
+    }
+    
+    private func handleJson(with json: [Article]) async {
         await MainActor.run {
             onLoadArticles?(json)
             shouldShowActivityIndicator?(false)
@@ -45,7 +45,7 @@ class ArticlesViewModel {
         }
     }
     
-    func transform(_ jsonArticle: ArticleJson) -> Article? {
+    private func transform(_ jsonArticle: ArticleJson) -> Article? {
         guard let title = jsonArticle.title,
               let category = jsonArticle.category.first,
               let content = jsonArticle.description else { return nil }
