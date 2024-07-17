@@ -21,4 +21,5 @@ struct ArticlesJSON: Decodable {
     
     let status: String
     let articles: [ArticleJSON]
+    let nextPage: String?
 }

@@ -23,12 +23,23 @@ class NewsListViewModel: ObservableObject {
     
     private func loadNews() {
         Task {
-            guard let loadedArticles = try? await articleLoader.loadNews() else { return }
+            guard let loadedArticles = try? await articleLoader.loadArticles() else { return }
             await MainActor.run {
                 self.articles = loadedArticles
             }
         }
     }
+    
+    private func loadNews(searchText: String) {
+        Task {
+            guard let loadedArticles = try? await articleLoader.load(With: searchText) else { return }
+            await MainActor.run {
+                articles = loadedArticles
+            }
+        }
+    }
+    
+    
     
     private func displayDate(from date: Date) -> String {
         let formatter = DateFormatter()
