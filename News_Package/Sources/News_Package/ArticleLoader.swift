@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArticleLoader {
+public class ArticleLoader {
     
     let apiKey = "pub_48790118712cacefc454a1ba59b065d8d5846"
     
@@ -18,6 +18,21 @@ class ArticleLoader {
     var currentTask: Task<[Article], Error>?
     private var nextPage: String?
     private var searchText: String?
+    
+    public init() { }
+    
+    public func loadArticles() async throws -> [Article] {
+        try await loadArticlesFromTask()
+    }
+    
+    public func load(With searchText: String) async throws -> [Article] {
+        await MainActor.run {
+            self.searchText = searchText
+            self.nextPage = nil
+        }
+        currentTask?.cancel()
+        return try await loadArticlesFromTask()
+    }
     
     func loadNews() async throws -> (articles: [Article], nextPage: String?) {
         guard let url = URL(string: urlString) else { return ([], nil) }
@@ -35,19 +50,6 @@ class ArticleLoader {
             }
         }
         return try await currentTask?.value ?? []
-    }
-    
-    func loadArticles() async throws -> [Article] {
-        try await loadArticlesFromTask()
-    }
-    
-    func load(With searchText: String) async throws -> [Article] {
-        await MainActor.run {
-            self.searchText = searchText
-            self.nextPage = nil
-        }
-        currentTask?.cancel()
-        return try await loadArticlesFromTask()
     }
     
     private func transform(json: ArticlesJSON) -> [Article] {

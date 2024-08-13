@@ -4,10 +4,8 @@
 //
 //  Created by Arshif on 30/05/2024.
 //
-import Foundation
-
-
 import SwiftUI
+import News_Package
 
 struct ArticleListView: View {
     
@@ -38,11 +36,11 @@ struct ArticleListView: View {
 
 extension Article: Identifiable, Hashable {
     
-    static func == (lhs: Article, rhs: Article) -> Bool {
+    public static func == (lhs: Article, rhs: Article) -> Bool {
         lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
