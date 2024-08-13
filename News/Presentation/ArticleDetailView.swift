@@ -18,11 +18,19 @@ struct ArticleDetailView: View {
                 imageView
                 contentView
             }
-            titleView
-                .background(Color.titleViewBackgroundColor, in: RoundedRectangle(cornerRadius: 10))
-                .padding(.horizontal, 24)
-                .frame(height: 140)
+            VStack {
+                titleView
+                    .background(Color.titleViewBackgroundColor, in: RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal, 24)
+                    .frame(height: 140)
+            }
+            
         }.navigationTitle("Detail")
+            .toolbar(content: {
+                if let url = article.detailURL {
+                    detailLinkView(for: url)
+                }
+            })
     }
     
     private var imageView: some View {
@@ -63,12 +71,22 @@ struct ArticleDetailView: View {
             .padding(.top)
             .padding(.bottom)
             Spacer()
-            
-            if let url = article.detailURL {
-                Button("Go to Webpage") {
-                    openURL(url)
-                }
-            }
         }
     }
+    
+    private func detailLinkView(for url: URL) -> some View {
+        Button {
+            openURL(url)
+        } label: {
+            Image(systemName: "link.circle.fill")
+        }
+    }
+}
+
+
+#Preview {
+    NavigationStack {
+        ArticleDetailView(article: .init(id: "anId", title: "A Title", date: .now, imageURL: nil, author: "An author", description: "a Description", detailURL: URL(string: "wwww.google.com"), content: "a Content"))
+    }
+    
 }
