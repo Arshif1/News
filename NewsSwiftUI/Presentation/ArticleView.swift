@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import News_Package
+import News
 
 struct ArticleView: View {
     

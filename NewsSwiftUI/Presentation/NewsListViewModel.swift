@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import News_Package
+import News
 
 class NewsListViewModel: ObservableObject {
     

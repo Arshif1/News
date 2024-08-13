@@ -5,7 +5,7 @@
 //  Created by Arshif on 30/05/2024.
 //
 import SwiftUI
-import News_Package
+import News
 
 struct ArticleListView: View {
     

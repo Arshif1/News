@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import News_Package
+import News
 
 class NewsListViewController: UIViewController {
     

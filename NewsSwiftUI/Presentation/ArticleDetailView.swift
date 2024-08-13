@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import News_Package
+import News
 
 struct ArticleDetailView: View {
     
