@@ -15,6 +15,7 @@
 		2E66F2F12C6BBD4E00F3B253 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2E66F2F02C6BBD4E00F3B253 /* Base */; };
 		2E66F2F92C6BC06100F3B253 /* News_Package in Frameworks */ = {isa = PBXBuildFile; productRef = 2E66F2F82C6BC06100F3B253 /* News_Package */; };
 		2E66F2FB2C6BC0D900F3B253 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F2FA2C6BC0D900F3B253 /* NewsListViewModel.swift */; };
+		2EA6C1502C6BC2F60038DB6F /* News_Package in Frameworks */ = {isa = PBXBuildFile; productRef = 2EA6C14F2C6BC2F60038DB6F /* News_Package */; };
 		63462CA52C08C20300F411DA /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CA42C08C20300F411DA /* NewsApp.swift */; };
 		63462CA72C08C20300F411DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CA62C08C20300F411DA /* ContentView.swift */; };
 		63462CA92C08C20F00F411DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63462CA82C08C20F00F411DA /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA6C1502C6BC2F60038DB6F /* News_Package in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +163,9 @@
 			dependencies = (
 			);
 			name = News_UiKit;
+			packageProductDependencies = (
+				2EA6C14F2C6BC2F60038DB6F /* News_Package */,
+			);
 			productName = News_UiKit;
 			productReference = 2E66F2E22C6BBD4D00F3B253 /* News_UiKit.app */;
 			productType = "com.apple.product-type.application";
@@ -564,6 +569,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		2E66F2F82C6BC06100F3B253 /* News_Package */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E66F2F62C6BBFBC00F3B253 /* XCLocalSwiftPackageReference "News_Package" */;
+			productName = News_Package;
+		};
+		2EA6C14F2C6BC2F60038DB6F /* News_Package */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2E66F2F62C6BBFBC00F3B253 /* XCLocalSwiftPackageReference "News_Package" */;
 			productName = News_Package;
