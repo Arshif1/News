@@ -121,6 +121,7 @@
 			children = (
 				63462CA42C08C20300F411DA /* NewsApp.swift */,
 				63462CA62C08C20300F411DA /* ContentView.swift */,
+				63462CE22C0C747600F411DA /* Extensions */,
 				63462CB82C08D63A00F411DA /* Presentation */,
 				63462CA82C08C20F00F411DA /* Assets.xcassets */,
 				63462CAA2C08C20F00F411DA /* Preview Content */,
@@ -140,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				2E66F2FA2C6BC0D900F3B253 /* NewsListViewModel.swift */,
-				63462CE22C0C747600F411DA /* Extensions */,
 				63462CB22C08D40B00F411DA /* ArticleView.swift */,
 				63462CDD2C0C3D2E00F411DA /* ArticleDetailView.swift */,
 				63462CB42C08D42A00F411DA /* ArticleListView.swift */,
