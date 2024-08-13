@@ -9,10 +9,10 @@ import Foundation
 
 class ArticleLoader {
     
-    let apiKey = "6db927ab9f5646ce94d25a07d6ec11a1"
+    let apiKey = "pub_48790118712cacefc454a1ba59b065d8d5846"
     
     var urlString: String {
-        "https://newsapi.org/v2/everything?q=apple&from=2024-05-29&to=2024-05-29&sortBy=popularity&apiKey=\(apiKey)"
+        "https://newsdata.io/api/1/latest?&apikey=\(apiKey)&language=en"
     }
     
     var currentTask: Task<[Article], Error>?
@@ -52,10 +52,10 @@ class ArticleLoader {
     
     private func transform(json: ArticlesJSON) -> [Article] {
         var articles = [Article]()
-        for jsonArticle in json.articles {
-            if let author = jsonArticle.author, let description = jsonArticle.description, let date = ISO8601DateFormatter().date(from: jsonArticle.publishedAt)  {
-                let new = Article(title: jsonArticle.title, date: date, imageURL: jsonArticle.urlToImage, author: author, description: description, detailURL: nil, content: jsonArticle.content)
-                articles.append(new)
+        for jsonArticle in json.results {
+            if let description = jsonArticle.description {
+                let article = Article(id: jsonArticle.article_id, title: jsonArticle.title, date: .now, imageURL: jsonArticle.image_url, author: "An author", description: description, detailURL: jsonArticle.link, content: jsonArticle.content)
+                articles.append(article)
             }
         }
         return articles

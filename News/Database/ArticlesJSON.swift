@@ -10,16 +10,17 @@ import Foundation
 struct ArticlesJSON: Decodable {
     
     struct ArticleJSON: Decodable {
+        let article_id: String
         let title: String
-        let author: String?
-        let description: String?
-        let publishedAt: String
-        let urlToImage: URL?
+        let link: URL?
         let content: String
-        let url: URL?
+        let creator: [String]?
+        let description: String?
+        let pubDate: String
+        let image_url: URL?
     }
     
     let status: String
-    let articles: [ArticleJSON]
+    let results: [ArticleJSON]
     let nextPage: String?
 }

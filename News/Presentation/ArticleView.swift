@@ -10,16 +10,24 @@ import SwiftUI
 
 struct ArticleView: View {
     
-    let article: ArticleItem
+    let article: Article
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             AsyncImage(url: article.imageURL, content: { image in
                 image.resizable()
             }, placeholder: {
-                ProgressView()
+                HStack {
+                    Spacer()
+                    VStack(alignment: .center) {
+                        Spacer()
+                        Image(systemName: "photo.artframe")
+                        Spacer()
+                    }
+                    Spacer()
+                }.frame(height: 200)
             }).frame(height: 200)
-            Text(article.date)
+            Text(article.displayDate)
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .light, design: .serif))
             Text(article.title)
@@ -28,7 +36,7 @@ struct ArticleView: View {
             Text(article.description)
                 .foregroundStyle(Color.black)
                 .font(.system(size: 12, weight: .light, design: .serif))
-            Text(article.publishedBy)
+            Text(article.author)
                 .foregroundStyle(Color.dateColor)
                 .font(.system(size: 10, weight: .semibold, design: .serif))
         }

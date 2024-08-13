@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArticleDetailView: View {
     
-    let article: ArticleItem
+    let article: Article
     @Environment(\.openURL) var openURL
     
     var body: some View {
@@ -49,13 +49,13 @@ struct ArticleDetailView: View {
     private var titleView: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(article.date)
+                Text("a Date")
                     .font(.system(size: 10, weight: .light, design: .serif))
                 Spacer()
                 Text(article.title)
                     .font(.system(size: 18, weight: .bold, design: .serif))
                 Spacer()
-                Text(article.publishedBy)
+                Text(article.author)
                     .font(.system(size: 10, weight: .medium, design: .serif))
 
             }
@@ -64,15 +64,11 @@ struct ArticleDetailView: View {
             .padding(.bottom)
             Spacer()
             
-            if let url = article.url {
+            if let url = article.detailURL {
                 Button("Go to Webpage") {
                     openURL(url)
                 }
             }
         }
     }
-}
-
-#Preview {
-    ArticleDetailView(article: ArticleItem.dummyNews().first!)
 }

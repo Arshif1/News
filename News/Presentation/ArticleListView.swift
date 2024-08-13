@@ -13,12 +13,12 @@ struct ArticleListView: View {
     
     @ObservedObject private var newsListViewModel = NewsListViewModel()
     
-    @State var selectedArticle: ArticleItem?
+    @State var selectedArticle: Article?
 
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
-                ForEach(newsListViewModel.newsItems) { article in
+                ForEach(newsListViewModel.articles) { article in
                     ZStack {
                         ArticleView(article: article)
                             .padding(.bottom, 10)
@@ -33,5 +33,16 @@ struct ArticleListView: View {
         }.navigationDestination(item: $selectedArticle) { article in
             ArticleDetailView(article: article)
         }
+    }
+}
+
+extension Article: Identifiable, Hashable {
+    
+    static func == (lhs: Article, rhs: Article) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
