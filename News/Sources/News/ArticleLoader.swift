@@ -9,10 +9,16 @@ import Foundation
 
 public class ArticleLoader {
     
-    let apiKey = "pub_48790118712cacefc454a1ba59b065d8d5846"
+    let apiKey = "pub_4740411c97d4533dc0cb60e4f09dc5df81264"
+    private var base: String {
+        "https://newsdata.io/api/1/latest?&apikey=\(apiKey)&language=en"
+    }
     
     var urlString: String {
-        "https://newsdata.io/api/1/latest?&apikey=\(apiKey)&language=en"
+        guard let nextPage else {
+            return base
+        }
+        return base + "&page=\(nextPage)"
     }
     
     var currentTask: Task<[Article], Error>?
@@ -46,6 +52,7 @@ public class ArticleLoader {
             let (aricles, nextpage) = try await loadNews()
             return await MainActor.run {
                 self.nextPage = nextpage
+                print(nextpage)
                 return aricles
             }
         }

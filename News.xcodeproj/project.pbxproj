@@ -26,7 +26,14 @@
 		63462CB32C08D40B00F411DA /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CB22C08D40B00F411DA /* ArticleView.swift */; };
 		63462CB52C08D42A00F411DA /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CB42C08D42A00F411DA /* ArticleListView.swift */; };
 		63462CDE2C0C3D2E00F411DA /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CDD2C0C3D2E00F411DA /* ArticleDetailView.swift */; };
-		63462CE42C0C748800F411DA /* Color+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CE32C0C748800F411DA /* Color+extension.swift */; };
+		63462CE42C0C748800F411DA /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63462CE32C0C748800F411DA /* Color-Extension.swift */; };
+		63D4DC512C6E5054009F1DDC /* Font-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4DC502C6E5054009F1DDC /* Font-Extension.swift */; };
+		63D4DC542C6E52A3009F1DDC /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4DC532C6E52A3009F1DDC /* Color-Extension.swift */; };
+		63D4DC562C6E5334009F1DDC /* Font-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4DC552C6E5334009F1DDC /* Font-Extension.swift */; };
+		63D4DC582C6E538B009F1DDC /* UIImageView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4DC572C6E538B009F1DDC /* UIImageView-Extension.swift */; };
+		63D4DC5D2C6E5449009F1DDC /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D4DC5C2C6E5449009F1DDC /* Color.xcassets */; };
+		63D4DC602C6E59FA009F1DDC /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D4DC5F2C6E59FA009F1DDC /* Color.xcassets */; };
+		63D4DC622C6F7EBE009F1DDC /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4DC612C6F7EBE009F1DDC /* ArticleDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +57,14 @@
 		63462CB22C08D40B00F411DA /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		63462CB42C08D42A00F411DA /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		63462CDD2C0C3D2E00F411DA /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
-		63462CE32C0C748800F411DA /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
+		63462CE32C0C748800F411DA /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
+		63D4DC502C6E5054009F1DDC /* Font-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Extension.swift"; sourceTree = "<group>"; };
+		63D4DC532C6E52A3009F1DDC /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
+		63D4DC552C6E5334009F1DDC /* Font-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Extension.swift"; sourceTree = "<group>"; };
+		63D4DC572C6E538B009F1DDC /* UIImageView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView-Extension.swift"; sourceTree = "<group>"; };
+		63D4DC5C2C6E5449009F1DDC /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		63D4DC5F2C6E59FA009F1DDC /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		63D4DC612C6F7EBE009F1DDC /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +93,10 @@
 				2E66F2E42C6BBD4D00F3B253 /* AppDelegate.swift */,
 				2E66F2E62C6BBD4D00F3B253 /* SceneDelegate.swift */,
 				2E66F2E82C6BBD4D00F3B253 /* NewsListViewController.swift */,
+				63D4DC612C6F7EBE009F1DDC /* ArticleDetailViewController.swift */,
+				63D4DC5E2C6E59E6009F1DDC /* Resources */,
 				2EA6C1512C6BC46E0038DB6F /* NewsListViewModel.swift */,
+				63D4DC522C6E5062009F1DDC /* Extensions */,
 				2EA6C1532C6BC5FF0038DB6F /* ArticleListCell.swift */,
 				2EA6C1542C6BC5FF0038DB6F /* ArticleListCell.xib */,
 				2E66F2EA2C6BBD4D00F3B253 /* Main.storyboard */,
@@ -121,6 +138,7 @@
 			children = (
 				63462CA42C08C20300F411DA /* NewsApp.swift */,
 				63462CA62C08C20300F411DA /* ContentView.swift */,
+				63D4DC592C6E53B5009F1DDC /* Resources */,
 				63462CE22C0C747600F411DA /* Extensions */,
 				63462CB82C08D63A00F411DA /* Presentation */,
 				63462CA82C08C20F00F411DA /* Assets.xcassets */,
@@ -151,9 +169,36 @@
 		63462CE22C0C747600F411DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				63462CE32C0C748800F411DA /* Color+extension.swift */,
+				63462CE32C0C748800F411DA /* Color-Extension.swift */,
+				63D4DC502C6E5054009F1DDC /* Font-Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63D4DC522C6E5062009F1DDC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63D4DC532C6E52A3009F1DDC /* Color-Extension.swift */,
+				63D4DC572C6E538B009F1DDC /* UIImageView-Extension.swift */,
+				63D4DC552C6E5334009F1DDC /* Font-Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63D4DC592C6E53B5009F1DDC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63D4DC5C2C6E5449009F1DDC /* Color.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		63D4DC5E2C6E59E6009F1DDC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63D4DC5F2C6E59FA009F1DDC /* Color.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +291,7 @@
 			files = (
 				2EA6C1562C6BC5FF0038DB6F /* ArticleListCell.xib in Resources */,
 				2E66F2EE2C6BBD4E00F3B253 /* Assets.xcassets in Resources */,
+				63D4DC602C6E59FA009F1DDC /* Color.xcassets in Resources */,
 				2E66F2F12C6BBD4E00F3B253 /* Base in Resources */,
 				2E66F2EC2C6BBD4D00F3B253 /* Base in Resources */,
 			);
@@ -257,6 +303,7 @@
 			files = (
 				63462CAC2C08C20F00F411DA /* Preview Assets.xcassets in Resources */,
 				63462CA92C08C20F00F411DA /* Assets.xcassets in Resources */,
+				63D4DC5D2C6E5449009F1DDC /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,10 +315,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E66F2E92C6BBD4D00F3B253 /* NewsListViewController.swift in Sources */,
+				63D4DC562C6E5334009F1DDC /* Font-Extension.swift in Sources */,
+				63D4DC542C6E52A3009F1DDC /* Color-Extension.swift in Sources */,
 				2E66F2E52C6BBD4D00F3B253 /* AppDelegate.swift in Sources */,
+				63D4DC582C6E538B009F1DDC /* UIImageView-Extension.swift in Sources */,
 				2EA6C1552C6BC5FF0038DB6F /* ArticleListCell.swift in Sources */,
 				2E66F2E72C6BBD4D00F3B253 /* SceneDelegate.swift in Sources */,
 				2EA6C1522C6BC46E0038DB6F /* NewsListViewModel.swift in Sources */,
+				63D4DC622C6F7EBE009F1DDC /* ArticleDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +330,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D4DC512C6E5054009F1DDC /* Font-Extension.swift in Sources */,
 				63462CA72C08C20300F411DA /* ContentView.swift in Sources */,
 				63462CDE2C0C3D2E00F411DA /* ArticleDetailView.swift in Sources */,
 				63462CB52C08D42A00F411DA /* ArticleListView.swift in Sources */,
-				63462CE42C0C748800F411DA /* Color+extension.swift in Sources */,
+				63462CE42C0C748800F411DA /* Color-Extension.swift in Sources */,
 				63462CB32C08D40B00F411DA /* ArticleView.swift in Sources */,
 				63462CA52C08C20300F411DA /* NewsApp.swift in Sources */,
 				2E66F2FB2C6BC0D900F3B253 /* NewsListViewModel.swift in Sources */,

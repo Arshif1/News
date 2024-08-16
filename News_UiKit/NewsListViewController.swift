@@ -6,7 +6,7 @@
 import UIKit
 import News
 
-class NewsListViewController: UIViewController {
+class NewsListViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet private weak var tableView: UITableView?
     
@@ -24,7 +24,9 @@ class NewsListViewController: UIViewController {
     }
 
     private func configure() {
+        title = "News"
         tableView?.dataSource = self
+        tableView?.delegate = self
         tableView?.register(UINib(nibName: "ArticleListCell", bundle: .main), forCellReuseIdentifier: "cell")
         configureViewModel()
     }
@@ -35,7 +37,16 @@ class NewsListViewController: UIViewController {
         }
         viewmodel.loadNews()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "ArticleDetailViewController") as! ArticleDetailViewController
+        detailViewController.article = articles[indexPath.row]
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+
 }
+
 
 extension NewsListViewController: UITableViewDataSource {
     
@@ -45,8 +56,20 @@ extension NewsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleListCell
-        cell.labelTitle?.text = articles[indexPath.row].title
-        cell.labelDescription?.text = articles[indexPath.row].description
+        cell.article = articles[indexPath.row]
         return cell
+        
+   
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            viewmodel.loadNews()
+        }
+    }
+    
 }
